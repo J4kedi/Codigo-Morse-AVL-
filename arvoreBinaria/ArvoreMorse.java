@@ -45,13 +45,11 @@ public class ArvoreMorse {
         adicionar(".", 'E');
         adicionar("-", 'T');
         
-        // Nível 2
         adicionar("..", 'I');
         adicionar(".-", 'A');
         adicionar("-.", 'N');
         adicionar("--", 'M');
 
-        // Nível 3
         adicionar("...", 'S');
         adicionar("..-", 'U');
         adicionar(".-.", 'R');
@@ -61,7 +59,6 @@ public class ArvoreMorse {
         adicionar("--.", 'G');
         adicionar("---", 'O');
 
-        // Nível 4
         adicionar("....", 'H');
         adicionar("...-", 'V');
         adicionar("..-.", 'F');
@@ -73,6 +70,19 @@ public class ArvoreMorse {
         adicionar("-.--", 'Y');
         adicionar("--..", 'Z');
         adicionar("--.-", 'Q');
+    }
+
+    public void mostrarArvore() {
+        int len = 3;
+        int lenSpace = 45;
+        String inicio = " ".repeat(lenSpace - 6) + "** Arvore Morse **\n";
+
+        System.out.println(inicio);
+        System.out.println(" ".repeat(lenSpace) + "[START]");
+        System.out.println(" ".repeat(lenSpace) + "/" + " ".repeat(5) + "\\");
+        System.out.println(" ".repeat(lenSpace - 2) + "[" + procurar(".").getValor() + "]" + " ".repeat(5) + "[" + procurar("-").getValor() + "]");
+        System.out.println(" ".repeat(lenSpace - 2) + "/ \\" +  " ".repeat(5) + "/ \\");
+        System.out.println(" ".repeat(lenSpace - 4) + "[" + procurar("..").getValor() + "]" + " ".repeat(1) + "[" + procurar(".-").getValor() + "]" + " ".repeat(5) + "[" + procurar("--").getValor() + "]");
     }
 
     private class Node {
@@ -110,7 +120,6 @@ public class ArvoreMorse {
             return "Node: [" + valor + "]";
         }
     }
-
     @Override
     public String toString() {
         return "Raiz: [" + raiz.getValor() + "]";
